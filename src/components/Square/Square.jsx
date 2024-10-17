@@ -1,23 +1,85 @@
 import React from "react";
 
+import Pic1 from "../../assets/2.jpg";
+import Pic2 from "../../assets/Ghost.jpg";
+import Pic3 from "../../assets/188720.png";
+import Slider from "react-slick";
 
+const ImageList = [
+  {
+    id: 1,
+    img: Pic1,
+    title: "Upto 50% off on all Men's Wear",
+    description:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam auctor, nunc vel ultricies ultricies, ipsum sem vehicula nunc, nec ultricies felis odio eu sem. Donec nec tortor eget odio pharetra ultricies. Donec nec tortor eget odio pharetra ultricies.",
+  },
+  {
+    id: 2,
+    img: Pic2,
+    title: "Upto 30% off on all Women's Wear",
+    description:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam auctor, nunc vel ultricies ultricies, ipsum sem vehicula nunc, nec ultricies felis odio eu sem. Donec nec tortor eget odio pharetra ultricies. Donec nec tortor eget odio pharetra ultricies.",
+  },
+  {
+    id: 3,
+    img: Pic3,
+    title: "70% off on all Product's Sale",
+    description:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam auctor, nunc vel ultricies ultricies, ipsum sem vehicula nunc, nec ultricies felis odio eu sem. Donec nec tortor eget odio pharetra ultricies. Donec nec tortor eget odio pharetra ultricies.",
+  },
+];
 
 const Square = () => {
-  return (
-    <div>
-      <div className="w-[700px] h-[700px] bg-primary/20 rounded-full absolute top-[280px] right-[790px]"></div>
-      <div className="w-[300px] h-[300px] bg-primary/20 rounded-full absolute top-[120px] right-[1450px]"></div>
-      <div className="w-[300px] h-[300px] bg-primary/70 rounded-full absolute top-[450px] right-[150px]"></div>
 
-      <div className="w-[600px] h-[600px] bg-primary/50 rounded-[30px] rotate-[45deg] absolute top-[-170px] left-[1000px]">
-        {/* Content inside the square */}
+  var settings = {
+    dots: false,
+    arrows: false,
+    infinite: true,
+    speed: 800,
+    slidesToScroll: 1,
+    autoplay: true,
+    autoplaySpeed: 4000,
+    cssEase: "ease-in-out",
+    pauseOnHover: false,
+    pauseOnFocus: true,
+  }
+
+  return (
+    <div className="relative overflow-hidden min-h-[550px] sm:min-[650px] bg-gray-100
+     flex justify-center items-center dark:bg-gray-800 dark:text-white duration-200">
+      <div className="w-[700px] h-[700px] bg-primary/50 absolute -top-1/2 right-0 rounded-3xl rotate-45 -z-9">
+      
       </div>
-      <div className="relative w-0 h-0">
-        <div className="w-0 h-0 border-l-[50px] border-l-transparent border-r-[50px] border-r-transparent border-b-[100px] border-b-primary/30 absolute top-[500px] left-[1200px] rounded-triangle"></div>
+      <div className="container pb-8 sm:pb-0">
+        <Slider {...settings}>
+          {ImageList.map((data) => (
+            <div>
+              <div className="grid grid-cols-1 sm:grid-cols-2">
+                {/* text content section */}
+                <div className="flex flex-col justify-center gap-4 pt-12 sm:pt-0 text-center sm:text-left
+                order-2 sm:order-1 relative z-10">
+                  <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold">{data.title}</h1>
+                  <p className="text-sm">{data.description}</p>
+                  <div>
+                    <button className="bg-gradient-to-r from-primary to-secondary hover:scale-105
+                    duration-200 text-white py-2 px-4 rounded-full">
+                      Order Now
+                    </button>
+                  </div>
+                </div>
+                {/* Image section */}
+                <div className="order-1 sm:order-2">
+                  <div className="relative z-10">
+                    <img src={data.img} alt="#" className="w-[300px] h-[300px] sm:h-[450px] sm:w-[450px] sm:scale-125 object-contain mx-auto"/>
+                  </div>
+                </div>
+              </div>
+            </div>
+          ))}
+        </Slider>
+        
       </div>
-      <div></div>
     </div>
   );
 };
-
 export default Square;
