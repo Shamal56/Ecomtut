@@ -14,10 +14,28 @@ const Subscribe = () => {
   return (
     <div
       data-aos="zoom-in "
-      className="bg-gray-100 text-white"
+      className="mb-20 bg-gray-100 text-white"
       style={Bannerimg}
     >
-      <div></div>
+      <div className="container backdrop-blur-[1px] py-10">
+        <div
+          className="space-y-6 max-w-xl mx-auto
+        "
+        >
+          <h1
+            className="text-2xl text-center  sm:text-left
+          sm:text-4xl font-semibold"
+          >
+            Get Notified About New Products
+          </h1>
+          <input
+            data-aos="fade-up"
+            type="text"
+            placeholder="Enter your Email"
+            className="w-full p-3 rounded-md"
+          />
+        </div>
+      </div>
     </div>
   );
 };
